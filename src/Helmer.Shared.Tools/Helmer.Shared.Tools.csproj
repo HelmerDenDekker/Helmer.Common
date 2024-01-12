@@ -13,4 +13,8 @@
     <PackageReference Include="System.Reactive" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Helmer.Shared.Common\Helmer.Shared.Common.csproj" />
+  </ItemGroup>
+
 </Project>
