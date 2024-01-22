@@ -67,15 +67,20 @@ public class Result
 	public static Result UnAuthorized => new(new List<string> { "The request cannot be processed by the code, no authorization" }, HttpStatusCode.Unauthorized);
 
 	/// <summary>
-	///     Request failed, The resource was found by the code, but the content is not conform the criteria. Equivalent to 406
-	///     Not acceptable.
+	///     Request failed, access to the resource is Forbidden. Equivalent to 403 Forbidden. Re-authenticating has no use.
 	/// </summary>
-	public static Result NotAcceptable => new(new List<string> { "The resource was found by the code, but the content is not conform the criteria" }, HttpStatusCode.NotAcceptable);
-
+	public static Result Forbidden => new(new List<string> { "Access to the resource is forbidden" }, HttpStatusCode.Forbidden);
+	
 	/// <summary>
 	///     Request failed, the resource cannot be found by the code. Equivalent to 404 Not found.
 	/// </summary>
 	public static Result NotFound => new(new List<string> { "The resource cannot be found by the code" }, HttpStatusCode.NotFound);
+	
+	/// <summary>
+	///     Request failed, The resource was found by the code, but the content is not conform the criteria. Equivalent to 406
+	///     Not acceptable.
+	/// </summary>
+	public static Result NotAcceptable => new(new List<string> { "The resource was found by the code, but the content is not conform the criteria" }, HttpStatusCode.NotAcceptable);
 
 	/// <summary>
 	///     Request failed, an insecure url address is used (http:// instead of https://) Refers to 451, in the meaning that
