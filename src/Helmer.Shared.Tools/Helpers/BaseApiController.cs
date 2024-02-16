@@ -1,4 +1,5 @@
-﻿using Helmer.Shared.Common;
+﻿using System.Net;
+using Helmer.Shared.Common;
 using Helmer.Shared.Tools.Attributes;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,4 +24,18 @@ public class BaseApiController : ControllerBase
             Content = result.Messages.First()
         };
     }
+
+	/// <summary>
+	///     A default ActionResponse for returning a generic response as returned by the <see cref="Result{TValue}" /> subclass
+	/// </summary>
+	/// <param name="result"><see cref="Result" /> Result  with a StatusCode</param>
+	/// <returns>ActionResult according to statuscode in the <see cref="Result" /> Result </returns>
+	[NonAction]
+	public ActionResult ActionResponse<TValue>(Result<TValue> result)
+	{
+		if (result.IsSuccess && result.StatusCode == HttpStatusCode.OK)
+			return Ok(result.Value);
+
+		return ActionResponse(result);
+	}
 }
