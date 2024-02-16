@@ -4,7 +4,7 @@ using System.Reactive.Subjects;
 namespace Helmer.Shared.Tools.Reactive;
 
 /// <summary>
-/// Reactive extension on the BehaviourSubject, Distinct Until Changed
+///     Reactive extension on the BehaviourSubject, Distinct Until Changed
 /// </summary>
 /// <typeparam name="T"></typeparam>
 public abstract class DistinctBehaviorSubject<T>
@@ -20,10 +20,10 @@ public abstract class DistinctBehaviorSubject<T>
         set => Subject.OnNext(value);
     }
 
-    public BehaviorSubject<T> Subject { get; private set; }
+    public BehaviorSubject<T> Subject { get; }
 
     /// <summary>
-    /// When the Value changed
+    ///     When the Value changed
     /// </summary>
     public IObservable<T> ValueChanged => Subject.DistinctUntilChanged();
 }
