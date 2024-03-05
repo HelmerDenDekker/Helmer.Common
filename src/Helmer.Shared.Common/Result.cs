@@ -55,12 +55,7 @@ public class Result
 	public static Result NoContent => new(new List<string> { "The request has been successfully processed" },
         HttpStatusCode.NoContent);
 
-	/// <summary>
-	///     Request failed, the request cannot be processed by the code. Equivalent to 409 conflict
-	/// </summary>
-	public static Result Conflict =>
-        new(new List<string> { "The request cannot be processed by the code due to a conflict" },
-            HttpStatusCode.Conflict);
+	
 
 	/// <summary>
 	///     Request failed, the request cannot be processed by the code. Equivalent to 400 Bad Request.
@@ -96,6 +91,20 @@ public class Result
         new(new List<string> { "The resource was found by the code, but the content is not conform the criteria" },
             HttpStatusCode.NotAcceptable);
 
+	/// <summary>
+	///     Request failed, the request cannot be fully processed by the code due to cancellation or timeout. Equivalent to 408 timeout
+	/// </summary>
+	public static Result Timeout =>
+		new(new List<string> { "The request cannot be processed by the code due to cancellation or timeout" },
+			HttpStatusCode.RequestTimeout);
+	
+	/// <summary>
+	///     Request failed, the request cannot be processed by the code. Equivalent to 409 conflict
+	/// </summary>
+	public static Result Conflict =>
+		new(new List<string> { "The request cannot be processed by the code due to a conflict" },
+			HttpStatusCode.Conflict);
+	
 	/// <summary>
 	///     Request failed, an insecure url address is used (http:// instead of https://) Refers to 451, in the meaning that
 	///     this resource is not available due to legal reasons (gdpr)
