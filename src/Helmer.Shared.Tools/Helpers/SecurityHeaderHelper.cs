@@ -1,7 +1,7 @@
 ﻿namespace Helmer.Shared.Tools.Helpers;
 
 /// <summary>
-/// This class contains the Security Headers (for use in attributes and middleware)
+///     This class contains the Security Headers (for use in attributes and middleware)
 /// </summary>
 public static class SecurityHeaderHelper
 {
@@ -10,16 +10,20 @@ public static class SecurityHeaderHelper
     private const string XFrameOptions = "X-Frame-Options";
 
     /// <summary>
-    /// A list of Security Headers for MVC applications
+    ///     A list of Security Headers for MVC applications
     /// </summary>
-    /// <param name="httpsExpiryTime">The time, in seconds, that the browser should remember that a site is only to be accessed using https</param>
+    /// <param name="httpsExpiryTime">
+    ///     The time, in seconds, that the browser should remember that a site is only to be accessed
+    ///     using https
+    /// </param>
     /// <returns>A Dictionary list with API headers</returns>
     public static Dictionary<string, string> ApiSecurityHeaders(int httpsExpiryTime)
     {
         var mvcHeaders = CommonSecurityHeaders(httpsExpiryTime);
 
         // Prevent XSS-attack https://infosec.mozilla.org/guidelines/web_security#content-security-policy
-        var defaultContentSecurityPolicy = "default-src 'self'; object-src 'none'; frame-ancestors 'none'; sandbox allow-forms allow-same-origin allow-scripts; base-uri 'self'; upgrade-insecure-requests;";
+        var defaultContentSecurityPolicy =
+            "default-src 'self'; object-src 'none'; frame-ancestors 'none'; sandbox allow-forms allow-same-origin allow-scripts; base-uri 'self'; upgrade-insecure-requests;";
         mvcHeaders.Add(ContentSecurityPolicy, defaultContentSecurityPolicy);
         mvcHeaders.Add(XContentSecurityPolicy, defaultContentSecurityPolicy);
 
@@ -30,9 +34,12 @@ public static class SecurityHeaderHelper
     }
 
     /// <summary>
-    /// A list of Security Headers for MVC applications
+    ///     A list of Security Headers for MVC applications
     /// </summary>
-    /// <param name="httpsExpiryTime">The time, in seconds, that the browser should remember that a site is only to be accessed using https</param>
+    /// <param name="httpsExpiryTime">
+    ///     The time, in seconds, that the browser should remember that a site is only to be accessed
+    ///     using https
+    /// </param>
     /// <returns>A Dictionary list with MVC security headers</returns>
     public static Dictionary<string, string> MvcSecurityHeaders(int httpsExpiryTime)
     {
@@ -45,7 +52,8 @@ public static class SecurityHeaderHelper
         mvcHeaders.Add(XFrameOptions, "SAMEORIGIN");
 
         // Prevent XSS-attack https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
-        var defaultContentSecurityPolicy = "default-src 'self'; object-src 'none'; frame-ancestors 'none'; sandbox allow-forms allow-same-origin allow-scripts; base-uri 'self'; upgrade-insecure-requests;";
+        var defaultContentSecurityPolicy =
+            "default-src 'self'; object-src 'none'; frame-ancestors 'none'; sandbox allow-forms allow-same-origin allow-scripts; base-uri 'self'; upgrade-insecure-requests;";
         mvcHeaders.Add(ContentSecurityPolicy, defaultContentSecurityPolicy);
         mvcHeaders.Add(XContentSecurityPolicy, defaultContentSecurityPolicy);
 
@@ -60,10 +68,17 @@ public static class SecurityHeaderHelper
     }
 
     /// <summary>
-    /// Overloading <see cref="MvcSecurityHeaders"/> with custom contentSecurityPolicy. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+    ///     Overloading <see cref="MvcSecurityHeaders" /> with custom contentSecurityPolicy. See
+    ///     https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
     /// </summary>
-    /// <param name="httpsExpiryTime">The time, in seconds, that the browser should remember that a site is only to be accessed using https</param>
-    /// <param name="contentSecurityPolicy">The custom content security policy. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy </param>
+    /// <param name="httpsExpiryTime">
+    ///     The time, in seconds, that the browser should remember that a site is only to be accessed
+    ///     using https
+    /// </param>
+    /// <param name="contentSecurityPolicy">
+    ///     The custom content security policy. See
+    ///     https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+    /// </param>
     /// <returns>A Dictionary list with MVC security headers</returns>
     public static Dictionary<string, string> MvcSecurityHeaders(int httpsExpiryTime, string contentSecurityPolicy)
     {
@@ -76,9 +91,13 @@ public static class SecurityHeaderHelper
     }
 
     /// <summary>
-    /// A list of generic Security Headers, these are included in the API and Web security methods, preferably use these methods and not this one.
+    ///     A list of generic Security Headers, these are included in the API and Web security methods, preferably use these
+    ///     methods and not this one.
     /// </summary>
-    /// <param name="httpsExpiryTime">The time, in seconds, that the browser should remember that a site is only to be accessed using https</param>
+    /// <param name="httpsExpiryTime">
+    ///     The time, in seconds, that the browser should remember that a site is only to be accessed
+    ///     using https
+    /// </param>
     /// <returns>A Dictionary list with common security headers</returns>
     public static Dictionary<string, string> CommonSecurityHeaders(int httpsExpiryTime)
     {
