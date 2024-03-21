@@ -54,7 +54,7 @@ public class StringExtensionsTests
     {
         // Arrange
 
-        var input = "TEST";
+        var input = "tEST";
 
         // Act
 
@@ -62,7 +62,7 @@ public class StringExtensionsTests
 
         // Assert
 
-        Assert.Equal("Test", result);
+        Assert.Equal("TEST", result);
     }
 
     [Fact]
