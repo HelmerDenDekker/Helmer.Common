@@ -94,4 +94,32 @@ public static class StringExtensions
         input.AsSpan(0, 1).ToUpperInvariant(destination);
         return $"{destination}{input.AsSpan(1)}";
     }
+
+    /// <summary>
+    /// Crops a string to a desired length and appends an ellipsis at the end
+    /// </summary>
+    /// <param name="input"></param>
+    /// <param name="desiredLength"></param>
+    /// <returns></returns>
+	public static string CropStringWithEllipsis(this string input, int desiredLength)
+	{
+		if (input.Length <= desiredLength)
+			return input;
+
+        var firstCut = input.Substring(0, desiredLength - 3);
+        var croppedMessage = firstCut.Substring(0, firstCut.LastIndexOf(' '));
+		string messageEnd = "...";
+
+		return $"{croppedMessage}{messageEnd}";
+	}
+
+    /// <summary>
+     	/// Prepends a string with an ellipsis
+     	/// </summary>
+     	/// <param name="input"></param>
+    	/// <returns></returns>
+	public static string PrependWithEllipsis(this string input)
+	{
+		return $"...{input}";
+	}
 }
