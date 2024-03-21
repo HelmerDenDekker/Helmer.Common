@@ -32,4 +32,52 @@ public class StringExtensionsTests
         Assert.True(result.Length <= desiredLength);
         Assert.EndsWith("...", result);
     }
+    
+    [Fact]
+    public void String_FirstToUpperAllLower_ShouldReturnFirstAsUpper()
+    {
+        // Arrange
+
+        var input = "test";
+
+        // Act
+
+        var result = input.FirstToUpper();
+
+        // Assert
+
+        Assert.Equal("Test", result);
+    }
+
+    [Fact]
+    public void String_FirstToUpperAllCaps_ShouldReturnFirstAsUpper()
+    {
+        // Arrange
+
+        var input = "TEST";
+
+        // Act
+
+        var result = input.FirstToUpper();
+
+        // Assert
+
+        Assert.Equal("Test", result);
+    }
+
+    [Fact]
+    public void String_FirstToUpperEmptyString_ShouldReturnEmptyString()
+    {
+        // Arrange
+
+        var input = string.Empty;
+
+        // Act
+
+        var result = input.FirstToUpper();
+
+        // Assert
+
+        Assert.Equal(input, result);
+    }
 }
