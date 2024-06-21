@@ -32,7 +32,37 @@ public class StringExtensionsTests
         Assert.True(result.Length <= desiredLength);
         Assert.EndsWith("...", result);
     }
-    
+
+	[Fact]
+	public void CropStringWithEllipsis_InputLengthOneGreaterThanDesiredLength_ReturnsCroppedStringWithEllipsis()
+	{
+		// Arrange
+		var input = "This is a long string";
+		var desiredLength = 20;
+
+		// Act
+		var result = input.CropStringWithEllipsis(desiredLength);
+
+		// Assert
+		Assert.True(result.Length <= desiredLength);
+		Assert.EndsWith("...", result);
+	}
+
+	[Fact]
+	public void CropStringWithEllipsis_InputLengthEqualToDesiredLength_ReturnsCroppedStringWithEllipsis()
+	{
+		// Arrange
+		var input = "This is a tiny apple";
+		var desiredLength = 20;
+
+		// Act
+		var result = input.CropStringWithEllipsis(desiredLength);
+
+		// Assert
+		Assert.True(result.Length <= desiredLength);
+		Assert.Equal(input, result);
+    }
+
     [Fact]
     public void String_FirstToUpperAllLower_ShouldReturnFirstAsUpper()
     {

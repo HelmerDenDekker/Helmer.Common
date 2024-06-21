@@ -92,7 +92,7 @@ public static class StringExtensions
         if (input.IsNullOrWhiteSpace()) return string.Empty;
         Span<char> destination = stackalloc char[1];
         input.AsSpan(0, 1).ToUpperInvariant(destination);
-        return $"{destination}{input.ToLowerInvariant().AsSpan(1)}";
+        return $"{destination}{input.AsSpan(1)}";
     }
 
     /// <summary>
