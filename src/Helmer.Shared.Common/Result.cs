@@ -3,8 +3,7 @@
 namespace Helmer.Shared.Common;
 
 /// <summary>
-///     This class returns a result on a command-type function, for async Task use <see cref="Result" /> as return type,
-///     for void use it by instantiating a result, send it along with the void, and set the success etc.
+///     This class returns a result on a command-type function
 /// </summary>
 public class Result
 {
@@ -13,7 +12,7 @@ public class Result
 	/// </summary>
 	/// <param name="messages">Messages explaining the result </param>
 	/// <param name="statusCode">The HttpStatusCode</param>
-	public Result(List<string> messages, HttpStatusCode statusCode)
+	protected Result(List<string> messages, HttpStatusCode statusCode)
     {
         var isSuccess = statusCode is HttpStatusCode.OK or HttpStatusCode.NoContent or HttpStatusCode.Created;
         IsSuccess = isSuccess;
@@ -54,8 +53,6 @@ public class Result
 	/// </summary>
 	public static Result NoContent => new(new List<string> { "The request has been successfully processed" },
         HttpStatusCode.NoContent);
-
-	
 
 	/// <summary>
 	///     Request failed, the request cannot be processed by the code. Equivalent to 400 Bad Request.
