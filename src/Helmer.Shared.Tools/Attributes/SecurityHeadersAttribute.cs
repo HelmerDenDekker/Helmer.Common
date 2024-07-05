@@ -15,13 +15,13 @@ public class SecurityHeadersAttribute : ActionFilterAttribute
     /// </summary>
     /// <param name="context"></param>
     public override void OnResultExecuting(ResultExecutingContext context)
-    {
-        var result = context.Result;
+	{
+		var result = context.Result;
 
-        if (result is ViewResult) AddHeaders(context, SecurityHeaderHelper.MvcSecurityHeaders(36000));
+		if (result is ViewResult) AddHeaders(context, SecurityHeaderHelper.MvcSecurityHeaders(36000));
 
-        if (result is ActionResult) AddHeaders(context, SecurityHeaderHelper.ApiSecurityHeaders(36000));
-    }
+		if (result is ActionResult) AddHeaders(context, SecurityHeaderHelper.ApiSecurityHeaders(36000));
+	}
 
     /// <summary>
     ///     This generic method adds the Security headers
@@ -29,9 +29,11 @@ public class SecurityHeadersAttribute : ActionFilterAttribute
     /// <param name="context">Th result context.</param>
     /// <param name="headers">Dictionary List of the security headers</param>
     private void AddHeaders(ResultExecutingContext context, Dictionary<string, string> headers)
-    {
-        foreach (var header in headers)
-            if (!context.HttpContext.Response.Headers.ContainsKey(header.Key))
-                context.HttpContext.Response.Headers.Append(header.Key, header.Value);
-    }
+	{
+		foreach (var header in headers)
+		{
+			if (!context.HttpContext.Response.Headers.ContainsKey(header.Key))
+				context.HttpContext.Response.Headers.Append(header.Key, header.Value);
+		}
+	}
 }

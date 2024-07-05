@@ -8,12 +8,12 @@ public class ApplicationVersion
     ///     Initializes a new instance of the <see cref="ApplicationVersion" /> class.
     /// </summary>
     public ApplicationVersion()
-    {
-        var number = Assembly.GetExecutingAssembly()?.GetName().Version?.ToString();
-        Number = number ??= string.Empty;
-        var name = Assembly.GetExecutingAssembly()?.GetName().Name;
-        Name = name ??= string.Empty;
-    }
+	{
+		var number = Assembly.GetExecutingAssembly()?.GetName().Version?.ToString();
+		Number = number ??= string.Empty;
+		var name = Assembly.GetExecutingAssembly()?.GetName().Name;
+		Name = name ??= string.Empty;
+	}
 
     /// <summary>
     ///     Gets the version number in the form x.y.z.buildnumber

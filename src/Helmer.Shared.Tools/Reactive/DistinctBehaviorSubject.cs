@@ -9,18 +9,18 @@ namespace Helmer.Shared.Tools.Reactive;
 /// <typeparam name="T"></typeparam>
 public abstract class DistinctBehaviorSubject<T>
 {
-    protected DistinctBehaviorSubject(T init)
-    {
-        Subject = new BehaviorSubject<T>(init);
-    }
+	protected DistinctBehaviorSubject(T init)
+	{
+		Subject = new BehaviorSubject<T>(init);
+	}
 
-    public T Value
-    {
-        get => Subject.Value;
-        set => Subject.OnNext(value);
-    }
+	public T Value
+	{
+		get => Subject.Value;
+		set => Subject.OnNext(value);
+	}
 
-    public BehaviorSubject<T> Subject { get; }
+	public BehaviorSubject<T> Subject { get; }
 
     /// <summary>
     ///     When the Value changed
