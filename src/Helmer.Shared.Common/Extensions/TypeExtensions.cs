@@ -9,15 +9,15 @@ public static class TypeExtensions
     /// </summary>
     /// <param name="type"></param>
     public static IEnumerable<FieldInfo> GetPublicConstants(this Type type)
-    {
-        return type.GetPublicClassConstants()
-            .Concat(type.GetNestedTypes(BindingFlags.Public).SelectMany(GetPublicConstants));
-    }
+	{
+		return type.GetPublicClassConstants()
+			.Concat(type.GetNestedTypes(BindingFlags.Public).SelectMany(GetPublicConstants));
+	}
 
-    private static IEnumerable<FieldInfo> GetPublicClassConstants(this Type type)
-    {
-        return type
-            .GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
-            .Where(fieldInfo => fieldInfo is { IsLiteral: true, IsInitOnly: false });
-    }
+	private static IEnumerable<FieldInfo> GetPublicClassConstants(this Type type)
+	{
+		return type
+			.GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
+			.Where(fieldInfo => fieldInfo is { IsLiteral: true, IsInitOnly: false });
+	}
 }

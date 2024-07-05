@@ -10,7 +10,19 @@ public static class ResultExtensions
 	/// <param name="value">The query object results return object value</param>
 	/// <returns></returns>
 	public static Result<TValue> DownCast<TValue>(this Result result, TValue? value = default)
-    {
-        return new Result<TValue>(value, result.Messages.ToList(), result.StatusCode);
-    }
+	{
+		return new Result<TValue>(value, result.Messages.ToList(), result.StatusCode);
+	}
+
+	/// <summary>
+	///     Adds a message to the result
+	/// </summary>
+	/// <param name="result"></param>
+	/// <param name="message"></param>
+	/// <returns></returns>
+	public static Result AddMessage(this Result result, string message)
+	{
+		result.Messages.Add(message);
+		return result;
+	}
 }

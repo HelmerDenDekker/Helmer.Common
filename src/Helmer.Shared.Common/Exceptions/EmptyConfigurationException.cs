@@ -7,6 +7,6 @@ public class EmptyConfigurationException : Exception
 	/// </summary>
 	/// <param name="message"></param>
 	public EmptyConfigurationException(string message) : base(message)
-    {
-    }
+	{
+	}
 }

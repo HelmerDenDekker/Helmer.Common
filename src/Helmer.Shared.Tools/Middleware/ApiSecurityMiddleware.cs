@@ -13,10 +13,12 @@ public class ApiSecurityMiddleware : SecurityMiddleware
     /// </summary>
     /// <param name="context">The http Context.</param>
     public override void SetSecurityHeaders(HttpContext context)
-    {
-        var headers = SecurityHeaderHelper.ApiSecurityHeaders(36000);
-        foreach (var header in headers)
-            if (!context.Response.Headers.ContainsKey(header.Key))
-                context.Response.Headers.Append(header.Key, header.Value);
-    }
+	{
+		var headers = SecurityHeaderHelper.ApiSecurityHeaders(36000);
+		foreach (var header in headers)
+		{
+			if (!context.Response.Headers.ContainsKey(header.Key))
+				context.Response.Headers.Append(header.Key, header.Value);
+		}
+	}
 }
