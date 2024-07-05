@@ -105,9 +105,11 @@ public static class StringExtensions
 	{
 		if (input.Length <= desiredLength)
 			return input;
-
-        var firstCut = input.Substring(0, desiredLength - 3);
-        var croppedMessage = firstCut.Substring(0, firstCut.LastIndexOf(' '));
+        
+		var croppedMessage = input.Substring(0, desiredLength - 3);
+		if (input.Contains(' '))
+			croppedMessage = croppedMessage.Substring(0, croppedMessage.LastIndexOf(' '));
+		
 		string messageEnd = "...";
 
 		return $"{croppedMessage}{messageEnd}";

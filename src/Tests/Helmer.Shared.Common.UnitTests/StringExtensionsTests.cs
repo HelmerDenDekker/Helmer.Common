@@ -62,6 +62,21 @@ public class StringExtensionsTests
 		Assert.True(result.Length <= desiredLength);
 		Assert.Equal(input, result);
     }
+	
+	[Fact]
+	public void CropStringWithEllipsis_InputLengthOneGreaterThanDesiredLengthAndNoSpaces_ReturnsCroppedStringWithEllipsis()
+	{
+		// Arrange
+		var input = new string('a', 21);
+		var desiredLength = 20;
+
+		// Act
+		var result = input.CropStringWithEllipsis(desiredLength);
+
+		// Assert
+		Assert.True(result.Length <= desiredLength);
+		Assert.EndsWith("...", result);
+	}
 
     [Fact]
     public void String_FirstToUpperAllLower_ShouldReturnFirstAsUpper()
