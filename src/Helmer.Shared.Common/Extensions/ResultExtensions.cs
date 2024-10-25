@@ -13,6 +13,28 @@ public static class ResultExtensions
 	{
 		return new Result<TValue>(value, result.Messages.ToList(), result.StatusCode);
 	}
+	
+	/// <summary>
+	///     Creates a user-friendly message
+	/// </summary>
+	/// <param name="message"></param>
+	/// <returns></returns>
+	public static string CreateUserFriendlyMessage(this string message)
+	{
+		return $"User:{message}";
+	}
+
+	/// <summary>
+	///     Gets the user-friendly message
+	/// </summary>
+	/// <param name="result"></param>
+	/// <returns></returns>
+	public static string GetErrorMessage(this Result result)
+	{
+		var userMessage = result.Messages.FirstOrDefault(mes => mes.StartsWith("User:"));
+
+		return userMessage?.Replace("User:", "");
+	}
 
 	/// <summary>
 	///     Adds a message to the result
