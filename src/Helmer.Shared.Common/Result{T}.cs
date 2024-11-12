@@ -11,8 +11,7 @@ public class Result<TValue> : Result
 	private readonly TValue? _value;
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="Result{TValue}">Result<TValue></see> for a result that returns the
-    ///     object TValue
+    ///     Initializes a new instance of the <see cref="Result{TValue}">Result{TValue}</see> for a result that returns the object TValue
     /// </summary>
     /// <param name="value">The object to return for this result</param>
     /// <param name="messages">Messages explaining the result</param>
@@ -23,7 +22,7 @@ public class Result<TValue> : Result
 	}
 
     /// <summary>
-    ///     Gets the object containg the query-results to return for this <see cref="Result{TValue}">Result</see>
+    ///     Gets the object containing the query-results to return for this <see cref="Result{TValue}">Result</see>
     /// </summary>
     public TValue Value => IsSuccess
 		? _value!
