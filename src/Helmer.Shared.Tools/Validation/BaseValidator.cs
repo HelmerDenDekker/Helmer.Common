@@ -2,11 +2,11 @@
 
 namespace Helmer.Shared.Tools.Validation
 {
-	public class DefaultValidatorStrategy<T> : IValidatorStrategy<T>
+	public class BaseValidator<T> : IValidator<T>
 	{
-		public bool IsValid(T modelToValidate)
+		public bool IsValid(T model)
 		{
-			var validationResults = Validate(modelToValidate);
+			var validationResults = Validate(model);
 			
 			return validationResults.Count == 0;
 		}
