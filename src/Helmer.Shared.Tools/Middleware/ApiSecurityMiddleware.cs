@@ -8,11 +8,11 @@ namespace Helmer.Shared.Tools.Middleware;
 /// </summary>
 public class ApiSecurityMiddleware : SecurityMiddleware
 {
-    /// <summary>
-    ///     Override the SetSecurityHeaders for setting API specific security headers.
-    /// </summary>
-    /// <param name="context">The http Context.</param>
-    public override void SetSecurityHeaders(HttpContext context)
+	/// <summary>
+	///     Override the SetSecurityHeaders for setting API specific security headers.
+	/// </summary>
+	/// <param name="context">The http Context.</param>
+	public override void SetSecurityHeaders(HttpContext context)
 	{
 		var headers = SecurityHeaderHelper.ApiSecurityHeaders(36000);
 		foreach (var header in headers)

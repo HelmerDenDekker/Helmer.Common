@@ -9,15 +9,15 @@ public static class SecurityHeaderHelper
 	private const string XContentSecurityPolicy = "X-Content-Security-Policy";
 	private const string XFrameOptions = "X-Frame-Options";
 
-    /// <summary>
-    ///     A list of Security Headers for MVC applications
-    /// </summary>
-    /// <param name="httpsExpiryTime">
-    ///     The time, in seconds, that the browser should remember that a site is only to be accessed
-    ///     using https
-    /// </param>
-    /// <returns>A Dictionary list with API headers</returns>
-    public static Dictionary<string, string> ApiSecurityHeaders(int httpsExpiryTime)
+	/// <summary>
+	///     A list of Security Headers for MVC applications
+	/// </summary>
+	/// <param name="httpsExpiryTime">
+	///     The time, in seconds, that the browser should remember that a site is only to be accessed
+	///     using https
+	/// </param>
+	/// <returns>A Dictionary list with API headers</returns>
+	public static Dictionary<string, string> ApiSecurityHeaders(int httpsExpiryTime)
 	{
 		var mvcHeaders = CommonSecurityHeaders(httpsExpiryTime);
 
@@ -33,15 +33,15 @@ public static class SecurityHeaderHelper
 		return mvcHeaders;
 	}
 
-    /// <summary>
-    ///     A list of Security Headers for MVC applications
-    /// </summary>
-    /// <param name="httpsExpiryTime">
-    ///     The time, in seconds, that the browser should remember that a site is only to be accessed
-    ///     using https
-    /// </param>
-    /// <returns>A Dictionary list with MVC security headers</returns>
-    public static Dictionary<string, string> MvcSecurityHeaders(int httpsExpiryTime)
+	/// <summary>
+	///     A list of Security Headers for MVC applications
+	/// </summary>
+	/// <param name="httpsExpiryTime">
+	///     The time, in seconds, that the browser should remember that a site is only to be accessed
+	///     using https
+	/// </param>
+	/// <returns>A Dictionary list with MVC security headers</returns>
+	public static Dictionary<string, string> MvcSecurityHeaders(int httpsExpiryTime)
 	{
 		var mvcHeaders = CommonSecurityHeaders(httpsExpiryTime);
 
@@ -67,20 +67,20 @@ public static class SecurityHeaderHelper
 		return mvcHeaders;
 	}
 
-    /// <summary>
-    ///     Overloading <see cref="MvcSecurityHeaders" /> with custom contentSecurityPolicy. See
-    ///     https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
-    /// </summary>
-    /// <param name="httpsExpiryTime">
-    ///     The time, in seconds, that the browser should remember that a site is only to be accessed
-    ///     using https
-    /// </param>
-    /// <param name="contentSecurityPolicy">
-    ///     The custom content security policy. See
-    ///     https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
-    /// </param>
-    /// <returns>A Dictionary list with MVC security headers</returns>
-    public static Dictionary<string, string> MvcSecurityHeaders(int httpsExpiryTime, string contentSecurityPolicy)
+	/// <summary>
+	///     Overloading <see cref="MvcSecurityHeaders" /> with custom contentSecurityPolicy. See
+	///     https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+	/// </summary>
+	/// <param name="httpsExpiryTime">
+	///     The time, in seconds, that the browser should remember that a site is only to be accessed
+	///     using https
+	/// </param>
+	/// <param name="contentSecurityPolicy">
+	///     The custom content security policy. See
+	///     https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+	/// </param>
+	/// <returns>A Dictionary list with MVC security headers</returns>
+	public static Dictionary<string, string> MvcSecurityHeaders(int httpsExpiryTime, string contentSecurityPolicy)
 	{
 		var mvcHeaders = MvcSecurityHeaders(httpsExpiryTime);
 		mvcHeaders.Remove(ContentSecurityPolicy);
@@ -90,16 +90,16 @@ public static class SecurityHeaderHelper
 		return mvcHeaders;
 	}
 
-    /// <summary>
-    ///     A list of generic Security Headers, these are included in the API and Web security methods, preferably use these
-    ///     methods and not this one.
-    /// </summary>
-    /// <param name="httpsExpiryTime">
-    ///     The time, in seconds, that the browser should remember that a site is only to be accessed
-    ///     using https
-    /// </param>
-    /// <returns>A Dictionary list with common security headers</returns>
-    public static Dictionary<string, string> CommonSecurityHeaders(int httpsExpiryTime)
+	/// <summary>
+	///     A list of generic Security Headers, these are included in the API and Web security methods, preferably use these
+	///     methods and not this one.
+	/// </summary>
+	/// <param name="httpsExpiryTime">
+	///     The time, in seconds, that the browser should remember that a site is only to be accessed
+	///     using https
+	/// </param>
+	/// <returns>A Dictionary list with common security headers</returns>
+	public static Dictionary<string, string> CommonSecurityHeaders(int httpsExpiryTime)
 	{
 		var mvcHeaders = new Dictionary<string, string>();
 

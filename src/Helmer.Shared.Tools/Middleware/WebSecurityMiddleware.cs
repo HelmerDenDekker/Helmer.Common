@@ -12,20 +12,20 @@ public class WebSecurityMiddleware : SecurityMiddleware
 {
 	private readonly HeaderSettings _headersettings;
 
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="WebSecurityMiddleware" /> class.
-    /// </summary>
-    /// <param name="options"></param>
-    public WebSecurityMiddleware(IOptions<HeaderSettings> options)
+	/// <summary>
+	///     Initializes a new instance of the <see cref="WebSecurityMiddleware" /> class.
+	/// </summary>
+	/// <param name="options"></param>
+	public WebSecurityMiddleware(IOptions<HeaderSettings> options)
 	{
 		_headersettings = options.Value;
 	}
 
-    /// <summary>
-    ///     Overrides the security headers, setting secure web headers.
-    /// </summary>
-    /// <param name="context">The http context.</param>
-    public override void SetSecurityHeaders(HttpContext context)
+	/// <summary>
+	///     Overrides the security headers, setting secure web headers.
+	/// </summary>
+	/// <param name="context">The http context.</param>
+	public override void SetSecurityHeaders(HttpContext context)
 	{
 		var headers = GetSecurityHeaders();
 		foreach (var header in headers)

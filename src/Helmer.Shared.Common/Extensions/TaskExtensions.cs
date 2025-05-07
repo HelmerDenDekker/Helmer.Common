@@ -2,10 +2,10 @@ namespace Helmer.Shared.Common.Extensions;
 
 public static class TaskExtensions
 {
-    /// <summary>
-    ///     Observes the task to avoid the UnobservedTaskException event to be raised.
-    /// </summary>
-    public static void Forget(this Task task)
+	/// <summary>
+	///     Observes the task to avoid the UnobservedTaskException event to be raised.
+	/// </summary>
+	public static void Forget(this Task task)
 	{
 		// note: this code is inspired by a tweet from Ben Adams: https://twitter.com/ben_a_adams/status/1045060828700037125
 		// Only care about tasks that may fault (not completed) or are faulted,

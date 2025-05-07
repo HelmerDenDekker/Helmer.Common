@@ -4,11 +4,11 @@ namespace Helmer.Shared.Common.Extensions;
 
 public static class TypeExtensions
 {
-    /// <summary>
-    ///     Method to get a list of constants
-    /// </summary>
-    /// <param name="type"></param>
-    public static IEnumerable<FieldInfo> GetPublicConstants(this Type type)
+	/// <summary>
+	///     Method to get a list of constants
+	/// </summary>
+	/// <param name="type"></param>
+	public static IEnumerable<FieldInfo> GetPublicConstants(this Type type)
 	{
 		return type.GetPublicClassConstants()
 			.Concat(type.GetNestedTypes(BindingFlags.Public).SelectMany(GetPublicConstants));

@@ -16,11 +16,11 @@ public class ConfigureSwaggerOptions
 		_provider = provider;
 	}
 
-    /// <summary>
-    ///     Configure each API discovered for Swagger Documentation
-    /// </summary>
-    /// <param name="options"></param>
-    public void Configure(SwaggerGenOptions options)
+	/// <summary>
+	///     Configure each API discovered for Swagger Documentation
+	/// </summary>
+	/// <param name="options"></param>
+	public void Configure(SwaggerGenOptions options)
 	{
 		// add swagger document for every API version discovered
 		foreach (var description in _provider.ApiVersionDescriptions)
@@ -31,22 +31,22 @@ public class ConfigureSwaggerOptions
 		}
 	}
 
-    /// <summary>
-    ///     Configure Swagger Options. Inherited from the Interface
-    /// </summary>
-    /// <param name="name"></param>
-    /// <param name="options"></param>
-    public void Configure(string name, SwaggerGenOptions options)
+	/// <summary>
+	///     Configure Swagger Options. Inherited from the Interface
+	/// </summary>
+	/// <param name="name"></param>
+	/// <param name="options"></param>
+	public void Configure(string name, SwaggerGenOptions options)
 	{
 		Configure(options);
 	}
 
-    /// <summary>
-    ///     Create information about the version of the API
-    /// </summary>
-    /// <param name="description"></param>
-    /// <returns>Information about the API</returns>
-    private OpenApiInfo CreateVersionInfo(ApiVersionDescription description)
+	/// <summary>
+	///     Create information about the version of the API
+	/// </summary>
+	/// <param name="description"></param>
+	/// <returns>Information about the API</returns>
+	private OpenApiInfo CreateVersionInfo(ApiVersionDescription description)
 	{
 		var info = new OpenApiInfo
 		{
