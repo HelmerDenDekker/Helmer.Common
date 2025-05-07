@@ -12,7 +12,8 @@ Only has dotnet 8 dependencies
 
 ### Helmer.Shared.Tools
 
-Contains tools for ASP.NET MVC or Api projects. Like SecurityHeaders Middleware, the ReactiveX DistinctBehahaviourSubject
+Contains tools for ASP.NET MVC or Api projects. Like SecurityHeaders Middleware, the ReactiveX
+DistinctBehahaviourSubject
 
 ### Helmer.Shared.Infra
 

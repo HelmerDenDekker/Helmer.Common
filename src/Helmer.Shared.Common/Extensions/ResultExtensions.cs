@@ -5,7 +5,7 @@ namespace Helmer.Shared.Common.Extensions;
 public static class ResultExtensions
 {
 	/// <summary>
-	/// A successful response
+	///     A successful response
 	/// </summary>
 	/// <param name="result"></param>
 	/// <returns>true if the response was successful</returns>
@@ -25,7 +25,7 @@ public static class ResultExtensions
 	}
 
 	/// <summary>
-	/// The information message containing the generic description of the error
+	///     The information message containing the generic description of the error
 	/// </summary>
 	/// <param name="result"></param>
 	/// <returns>The information message containing the generic description of the error</returns>
@@ -63,13 +63,13 @@ public static class ResultExtensions
 				return "The request cannot be processed by the server. This functionality is not implemented.";
 			case Result.GatewayTimeout:
 				return "The request cannot be processed by the server. Gateway timed out.";
-			default: 
+			default:
 				throw new NotImplementedException();
 		}
 	}
-	
+
 	/// <summary>
-	/// The corresponding HttpStatusCode for the Error
+	///     The corresponding HttpStatusCode for the Error
 	/// </summary>
 	/// <param name="result"></param>
 	/// <returns></returns>

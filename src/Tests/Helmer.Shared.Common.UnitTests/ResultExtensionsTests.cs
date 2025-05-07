@@ -17,7 +17,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.True(isSucces);
 	}
-	
+
 	[Fact]
 	public void IsSuccess_WhenResultIsCreated_ReturnsTrue()
 	{
@@ -30,7 +30,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.True(isSucces);
 	}
-	
+
 	[Fact]
 	public void IsSuccess_WhenResultIsNoContent_ReturnsTrue()
 	{
@@ -43,7 +43,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.True(isSucces);
 	}
-	
+
 	[Theory]
 	[InlineData(Result.BadRequest)]
 	[InlineData(Result.Unauthorized)]
@@ -66,7 +66,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.False(isSucces);
 	}
-	
+
 	[Fact]
 	public void StatusCode_WhenResultIsOk_ReturnsHttpStatusCodeOk()
 	{
@@ -79,7 +79,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.Equal(HttpStatusCode.OK, statusCode);
 	}
-	
+
 	[Fact]
 	public void StatusCode_WhenResultIsCreated_ReturnsHttpStatusCodeCreated()
 	{
@@ -92,7 +92,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.Equal(HttpStatusCode.Created, statusCode);
 	}
-	
+
 	[Fact]
 	public void StatusCode_WhenResultIsNoContent_ReturnsHttpStatusCodeNoContent()
 	{
@@ -105,7 +105,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.Equal(HttpStatusCode.NoContent, statusCode);
 	}
-	
+
 	[Fact]
 	public void StatusCode_WhenResultIsBadRequest_ReturnsHttpStatusCodeBadRequest()
 	{
@@ -118,7 +118,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.Equal(HttpStatusCode.BadRequest, statusCode);
 	}
-	
+
 	[Fact]
 	public void StatusCode_WhenResultIsUnauthorized_ReturnsHttpStatusCodeUnauthorized()
 	{
@@ -131,7 +131,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.Equal(HttpStatusCode.Unauthorized, statusCode);
 	}
-	
+
 	[Fact]
 	public void StatusCode_WhenResultIsForbidden_ReturnsHttpStatusCodeForbidden()
 	{
@@ -144,7 +144,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.Equal(HttpStatusCode.Forbidden, statusCode);
 	}
-	
+
 	[Fact]
 	public void StatusCode_WhenResultIsNotFound_ReturnsHttpStatusCodeNotFound()
 	{
@@ -157,7 +157,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.Equal(HttpStatusCode.NotFound, statusCode);
 	}
-	
+
 	[Fact]
 	public void StatusCode_WhenResultIsNotAcceptable_ReturnsHttpStatusCodeNotAcceptable()
 	{
@@ -170,7 +170,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.Equal(HttpStatusCode.NotAcceptable, statusCode);
 	}
-	
+
 	[Fact]
 	public void StatusCode_WhenResultIsTimeout_ReturnsHttpStatusCodeRequestTimeout()
 	{
@@ -183,7 +183,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.Equal(HttpStatusCode.RequestTimeout, statusCode);
 	}
-	
+
 	[Fact]
 	public void StatusCode_WhenResultIsConflict_ReturnsHttpStatusCodeConflict()
 	{
@@ -196,7 +196,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.Equal(HttpStatusCode.Conflict, statusCode);
 	}
-	
+
 	[Fact]
 	public void StatusCode_WhenResultIsInsecureUrl_ReturnsHttpStatusCodeUpgradeRequired()
 	{
@@ -209,7 +209,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.Equal(HttpStatusCode.UpgradeRequired, statusCode);
 	}
-	
+
 	[Fact]
 	public void StatusCode_WhenResultIsUnavailableForLegalReasons_ReturnsHttpStatusCodeUnavailableForLegalReasons()
 	{
@@ -222,7 +222,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.Equal(HttpStatusCode.UnavailableForLegalReasons, statusCode);
 	}
-	
+
 	[Fact]
 	public void StatusCode_WhenResultIsInternalServerError_ReturnsHttpStatusCodeInternalServerError()
 	{
@@ -235,7 +235,7 @@ public class ResultExtensionsTests
 		// Assert
 		Assert.Equal(HttpStatusCode.InternalServerError, statusCode);
 	}
-	
+
 	[Fact]
 	public void StatusCode_WhenResultIsNotImplemented_ReturnsHttpStatusCodeNotImplemented()
 	{
