@@ -66,7 +66,7 @@ public enum Result
 	UnavailableForLegalReasons,
 
 	/// <summary>
-	///     Request failed, a generic error occured. Equivalent to 500 Internal server error.
+	///     Request failed, a generic error occurred. Equivalent to 500 Internal server error.
 	/// </summary>
 	InternalServerError,
 
