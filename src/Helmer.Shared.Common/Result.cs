@@ -57,5 +57,9 @@ public enum Result
 	/// <summary>
 	///     Request failed, the code is not implemented. Equivalent to 501 NotImplemented.
 	/// </summary>
-	NotImplemented
+	NotImplemented,
+	/// <summary>
+	/// Request failed, the request cannot be fully processed by the code due to gateway timeout.
+	/// </summary>
+	GatewayTimeout
 }

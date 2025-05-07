@@ -34,25 +34,25 @@ public static class ResultExtensions
 		switch (result)
 		{
 			case Result.Ok:
-				return "The request succeeded and the requested information is in the response";
+				return "The request succeeded and the requested information is in the response.";
 			case Result.Created:
-				return "A new resource was successfully created";
+				return "A new resource was successfully created.";
 			case Result.NoContent:
-				return "The request has been successfully processed";
+				return "The request has been successfully processed.";
 			case Result.BadRequest:
-				return "The request cannot be processed by the code due to a validation error";
+				return "The request cannot be processed by the code due to a validation error.";
 			case Result.Unauthorized:
-				return "The request cannot be processed by the code, user is not authorizatized";
+				return "The request cannot be processed by the code, user is not authorized.";
 			case Result.Forbidden:
-				return "Access to the resource is forbidden";
+				return "Access to the resource is forbidden.";
 			case Result.NotFound:
-				return "The resource cannot be found by the code";
+				return "The resource cannot be found by the code.";
 			case Result.NotAcceptable:
-				return "The resource was found by the code, but the content is not conform the criteria";
+				return "The resource was found by the code, but the content is not conform the criteria.";
 			case Result.Timeout:
-				return "The request cannot be processed by the code due to cancellation or timeout";
+				return "The request cannot be processed by the code due to cancellation or timeout.";
 			case Result.Conflict:
-				return "The request cannot be processed by the code due to a conflict";
+				return "The request cannot be processed by the code due to a conflict.";
 			case Result.InsecureUrl:
 				return "The request cannot be processed by the server, due to an insecure url address being used.";
 			case Result.UnavailableForLegalReasons:
@@ -60,7 +60,9 @@ public static class ResultExtensions
 			case Result.InternalServerError:
 				return "The request cannot be processed by the server. A generic error has occured.";
 			case Result.NotImplemented:
-				return "The request cannot be processed by the server. This functionality is not implemented";
+				return "The request cannot be processed by the server. This functionality is not implemented.";
+			case Result.GatewayTimeout:
+				return "The request cannot be processed by the server. Gateway timed out.";
 			default: 
 				throw new NotImplementedException();
 		}
@@ -104,6 +106,8 @@ public static class ResultExtensions
 				return HttpStatusCode.InternalServerError;
 			case Result.NotImplemented:
 				return HttpStatusCode.NotImplemented;
+			case Result.GatewayTimeout:
+				return HttpStatusCode.GatewayTimeout;
 			default:
 				throw new NotImplementedException();
 		}
