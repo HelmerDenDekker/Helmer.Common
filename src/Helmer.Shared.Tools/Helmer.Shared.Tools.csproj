@@ -1,25 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<Version>8.1.0</Version>
+		<Version>10.0.0</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0"/>
-		<PackageReference Include="Microsoft.Extensions.Options" Version="9.0.9" />
-		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="9.0.4" />
-		<PackageReference Include="System.Reactive" Version="6.0.2" />
+		<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.1" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="10.0.2" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="10.1.0" />
+		<PackageReference Include="System.Reactive" Version="6.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Helmer.Shared.Common\Helmer.Shared.Common.csproj"/>
+		<ProjectReference Include="..\Helmer.Shared.Common\Helmer.Shared.Common.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Validation\"/>
+		<Folder Include="Validation\" />
 	</ItemGroup>
 
 </Project>
