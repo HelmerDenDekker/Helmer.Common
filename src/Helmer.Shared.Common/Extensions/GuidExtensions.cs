@@ -10,12 +10,12 @@ public static class GuidExtensions
 	private const char Underscore = '_';
 	private const char Dash = '-';
 
-    /// <summary>
-    ///     Encodes a <see cref="Guid" /> into a url safe string
-    /// </summary>
-    /// <param name="guid"></param>
-    /// <returns></returns>
-    public static string EncodeBase64String(this Guid guid)
+	/// <summary>
+	///     Encodes a <see cref="Guid" /> into a url safe string
+	/// </summary>
+	/// <param name="guid"></param>
+	/// <returns></returns>
+	public static string EncodeBase64String(this Guid guid)
 	{
 		Span<byte> guidBytes = stackalloc byte[16];
 		Span<byte> encodedBytes = stackalloc byte[24];
@@ -46,12 +46,12 @@ public static class GuidExtensions
 		return new string(chars);
 	}
 
-    /// <summary>
-    ///     Decodes a base64 encoded <see cref="Guid" /> back to a <see cref="Guid" />
-    /// </summary>
-    /// <param name="encodedGuid"></param>
-    /// <returns></returns>
-    public static Guid DecodeBase64String(this string encodedGuid)
+	/// <summary>
+	///     Decodes a base64 encoded <see cref="Guid" /> back to a <see cref="Guid" />
+	/// </summary>
+	/// <param name="encodedGuid"></param>
+	/// <returns></returns>
+	public static Guid DecodeBase64String(this string encodedGuid)
 	{
 		Span<byte> encodedBytes = stackalloc byte[24];
 

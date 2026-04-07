@@ -23,11 +23,11 @@ public class SecurityMiddleware : IMiddleware
 		await next(context);
 	}
 
-    /// <summary>
-    ///     A method to set the securityHeaders.
-    /// </summary>
-    /// <param name="context">The http context.</param>
-    public virtual void SetSecurityHeaders(HttpContext context)
+	/// <summary>
+	///     A method to set the securityHeaders.
+	/// </summary>
+	/// <param name="context">The http context.</param>
+	public virtual void SetSecurityHeaders(HttpContext context)
 	{
 		var headers = SecurityHeaderHelper.CommonSecurityHeaders(36000);
 		foreach (var header in headers)

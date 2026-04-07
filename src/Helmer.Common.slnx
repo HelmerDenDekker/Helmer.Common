@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Tests/">
+    <Project Path="Tests/Helmer.Shared.Common.UnitTests/Helmer.Shared.Common.UnitTests.csproj" />
+    <Project Path="Tests/Helmer.Shared.Tools.UnitTests/Helmer.Shared.Tools.UnitTests.csproj" />
+  </Folder>
+  <Project Path="Helmer.Shared.Common/Helmer.Shared.Common.csproj" />
+  <Project Path="Helmer.Shared.Infra/Helmer.Shared.Infra.csproj" />
+  <Project Path="Helmer.Shared.Tools/Helmer.Shared.Tools.csproj" />
+</Solution>

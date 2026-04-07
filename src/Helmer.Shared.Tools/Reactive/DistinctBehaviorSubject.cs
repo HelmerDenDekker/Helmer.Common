@@ -22,8 +22,8 @@ public abstract class DistinctBehaviorSubject<T>
 
 	public BehaviorSubject<T> Subject { get; }
 
-    /// <summary>
-    ///     When the Value changed
-    /// </summary>
-    public IObservable<T> ValueChanged => Subject.DistinctUntilChanged();
+	/// <summary>
+	///     When the Value changed
+	/// </summary>
+	public IObservable<T> ValueChanged => Subject.DistinctUntilChanged();
 }
