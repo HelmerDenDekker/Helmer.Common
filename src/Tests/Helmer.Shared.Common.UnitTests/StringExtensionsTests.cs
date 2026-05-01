@@ -93,6 +93,38 @@ public class StringExtensionsTests
 
 		Assert.Equal("Test", result);
 	}
+	
+	[Fact]
+	public void String_FirstToLowerAllUpper_ShouldReturnFirstAsLower()
+	{
+		// Arrange
+
+		var input = "TEST";
+
+		// Act
+
+		var result = input.FirstToLower();
+
+		// Assert
+
+		Assert.Equal("tEST", result);
+	}
+	
+	[Fact]
+	public void String_FirstToLowerPascal_ShouldReturnCamel()
+	{
+		// Arrange
+
+		var input = "TestTest";
+
+		// Act
+
+		var result = input.FirstToLower();
+
+		// Assert
+
+		Assert.Equal("testTest", result);
+	}
 
 	[Fact]
 	public void String_FirstToUpperAllCaps_ShouldReturnFirstAsUpper()

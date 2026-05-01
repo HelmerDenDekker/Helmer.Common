@@ -97,6 +97,20 @@ public static class StringExtensions
 		input.AsSpan(0, 1).ToUpperInvariant(destination);
 		return $"{destination}{input.AsSpan(1)}";
 	}
+	
+	/// <summary>
+	///     Changes the first character to lowercase
+	/// </summary>
+	/// <param name="input"></param>
+	/// <returns></returns>
+	public static string FirstToLower(this string input)
+	{
+		if (input.IsNullOrWhiteSpace()) return string.Empty;
+
+		Span<char> destination = stackalloc char[1];
+		input.AsSpan(0, 1).ToLowerInvariant(destination);
+		return $"{destination}{input.AsSpan(1)}";
+	}
 
 	/// <summary>
 	///     Crops a string to a desired length and appends an ellipsis at the end
