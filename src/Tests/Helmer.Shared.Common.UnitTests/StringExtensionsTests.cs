@@ -4,157 +4,143 @@ namespace Helmer.Shared.Common.UnitTests;
 
 public class StringExtensionsTests
 {
-	[Fact]
-	public void CropStringWithEllipsis_InputLengthLessThanDesiredLength_ReturnsInput()
-	{
-		// Arrange
-		var input = "Short string";
-		var desiredLength = 20;
+    [Fact]
+    public void CropStringWithEllipsis_InputLengthLessThanDesiredLength_ReturnsInput()
+    {
+        // Arrange
+        var input = "Short string";
+        var desiredLength = 20;
 
-		// Act
-		var result = input.CropStringWithEllipsis(desiredLength);
+        // Act
+        var result = input.CropStringWithEllipsis(desiredLength);
 
-		// Assert
-		Assert.Equal(input, result);
-	}
+        // Assert
+        Assert.Equal(input, result);
+    }
 
-	[Fact]
-	public void CropStringWithEllipsis_InputLengthGreaterThanDesiredLength_ReturnsCroppedStringWithEllipsis()
-	{
-		// Arrange
-		var input = "This is a long string that needs to be cropped";
-		var desiredLength = 20;
+    [Fact]
+    public void CropStringWithEllipsis_InputLengthGreaterThanDesiredLength_ReturnsCroppedStringWithEllipsis()
+    {
+        // Arrange
+        var input = "This is a long string that needs to be cropped";
+        var desiredLength = 20;
 
-		// Act
-		var result = input.CropStringWithEllipsis(desiredLength);
+        // Act
+        var result = input.CropStringWithEllipsis(desiredLength);
 
-		// Assert
-		Assert.True(result.Length <= desiredLength);
-		Assert.EndsWith("...", result);
-	}
+        // Assert
+        Assert.True(result.Length <= desiredLength);
+        Assert.EndsWith("...", result);
+    }
 
-	[Fact]
-	public void CropStringWithEllipsis_InputLengthOneGreaterThanDesiredLength_ReturnsCroppedStringWithEllipsis()
-	{
-		// Arrange
-		var input = "This is a long string";
-		var desiredLength = 20;
+    [Fact]
+    public void CropStringWithEllipsis_InputLengthOneGreaterThanDesiredLength_ReturnsCroppedStringWithEllipsis()
+    {
+        // Arrange
+        var input = "This is a long string";
+        var desiredLength = 20;
 
-		// Act
-		var result = input.CropStringWithEllipsis(desiredLength);
+        // Act
+        var result = input.CropStringWithEllipsis(desiredLength);
 
-		// Assert
-		Assert.True(result.Length <= desiredLength);
-		Assert.EndsWith("...", result);
-	}
+        // Assert
+        Assert.True(result.Length <= desiredLength);
+        Assert.EndsWith("...", result);
+    }
 
-	[Fact]
-	public void CropStringWithEllipsis_InputLengthEqualToDesiredLength_ReturnsCroppedStringWithEllipsis()
-	{
-		// Arrange
-		var input = "This is a tiny apple";
-		var desiredLength = 20;
+    [Fact]
+    public void CropStringWithEllipsis_InputLengthEqualToDesiredLength_ReturnsCroppedStringWithEllipsis()
+    {
+        // Arrange
+        var input = "This is a tiny apple";
+        var desiredLength = 20;
 
-		// Act
-		var result = input.CropStringWithEllipsis(desiredLength);
+        // Act
+        var result = input.CropStringWithEllipsis(desiredLength);
 
-		// Assert
-		Assert.True(result.Length <= desiredLength);
-		Assert.Equal(input, result);
-	}
+        // Assert
+        Assert.True(result.Length <= desiredLength);
+        Assert.Equal(input, result);
+    }
 
-	[Fact]
-	public void CropStringWithEllipsis_InputLengthOneGreaterThanDesiredLengthAndNoSpaces_ReturnsCroppedStringWithEllipsis()
-	{
-		// Arrange
-		var input = new string('a', 21);
-		var desiredLength = 20;
+    [Fact]
+    public void
+        CropStringWithEllipsis_InputLengthOneGreaterThanDesiredLengthAndNoSpaces_ReturnsCroppedStringWithEllipsis()
+    {
+        // Arrange
+        var input = new string('a', 21);
+        var desiredLength = 20;
 
-		// Act
-		var result = input.CropStringWithEllipsis(desiredLength);
+        // Act
+        var result = input.CropStringWithEllipsis(desiredLength);
 
-		// Assert
-		Assert.True(result.Length <= desiredLength);
-		Assert.EndsWith("...", result);
-	}
+        // Assert
+        Assert.True(result.Length <= desiredLength);
+        Assert.EndsWith("...", result);
+    }
 
-	[Fact]
-	public void String_FirstToUpperAllLower_ShouldReturnFirstAsUpper()
-	{
-		// Arrange
+    [Fact]
+    public void String_FirstToUpperAllLower_ShouldReturnFirstAsUpper()
+    {
+        // Arrange
+        var input = "test";
 
-		var input = "test";
+        // Act
+        var result = input.FirstToUpper();
 
-		// Act
+        // Assert
+        Assert.Equal("Test", result);
+    }
 
-		var result = input.FirstToUpper();
+    [Fact]
+    public void String_FirstToLowerAllUpper_ShouldReturnFirstAsLower()
+    {
+        // Arrange
+        var input = "TEST";
 
-		// Assert
+        // Act
+        var result = input.FirstToLower();
 
-		Assert.Equal("Test", result);
-	}
-	
-	[Fact]
-	public void String_FirstToLowerAllUpper_ShouldReturnFirstAsLower()
-	{
-		// Arrange
+        // Assert
+        Assert.Equal("tEST", result);
+    }
 
-		var input = "TEST";
+    [Fact]
+    public void String_FirstToLowerPascal_ShouldReturnCamel()
+    {
+        // Arrange
+        var input = "TestTest";
 
-		// Act
+        // Act
+        var result = input.FirstToLower();
 
-		var result = input.FirstToLower();
+        // Assert
+        Assert.Equal("testTest", result);
+    }
 
-		// Assert
+    [Fact]
+    public void String_FirstToUpperAllCaps_ShouldReturnFirstAsUpper()
+    {
+        // Arrange
+        var input = "tEST";
 
-		Assert.Equal("tEST", result);
-	}
-	
-	[Fact]
-	public void String_FirstToLowerPascal_ShouldReturnCamel()
-	{
-		// Arrange
+        // Act
+        var result = input.FirstToUpper();
 
-		var input = "TestTest";
+        // Assert
+        Assert.Equal("TEST", result);
+    }
 
-		// Act
+    [Fact]
+    public void String_FirstToUpperEmptyString_ShouldReturnEmptyString()
+    {
+        // Arrange
+        var input = string.Empty;
 
-		var result = input.FirstToLower();
+        // Act
+        var result = input.FirstToUpper();
 
-		// Assert
-
-		Assert.Equal("testTest", result);
-	}
-
-	[Fact]
-	public void String_FirstToUpperAllCaps_ShouldReturnFirstAsUpper()
-	{
-		// Arrange
-
-		var input = "tEST";
-
-		// Act
-
-		var result = input.FirstToUpper();
-
-		// Assert
-
-		Assert.Equal("TEST", result);
-	}
-
-	[Fact]
-	public void String_FirstToUpperEmptyString_ShouldReturnEmptyString()
-	{
-		// Arrange
-
-		var input = string.Empty;
-
-		// Act
-
-		var result = input.FirstToUpper();
-
-		// Assert
-
-		Assert.Equal(input, result);
-	}
+        // Assert
+        Assert.Equal(input, result);
+    }
 }

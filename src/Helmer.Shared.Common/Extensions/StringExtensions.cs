@@ -40,7 +40,8 @@ public static class StringExtensions
 	{
 		firstUrl = firstUrl.TrimEnd('/');
 		secondUrl = secondUrl.TrimStart('/');
-		return string.Format("{0}/{1}", firstUrl, secondUrl);
+		
+		return $"{firstUrl}/{secondUrl}";
 	}
 
 	/// <summary>
@@ -52,7 +53,8 @@ public static class StringExtensions
 	{
 		var trimmedEmail = email.Trim();
 
-		if (trimmedEmail.EndsWith(".")) return false;
+		if (trimmedEmail.EndsWith('.'))
+			return false;
 
 		try
 		{
@@ -72,7 +74,8 @@ public static class StringExtensions
 	/// <returns></returns>
 	public static string RemoveLineEndings(this string input)
 	{
-		if (string.IsNullOrEmpty(input)) return input;
+		if (string.IsNullOrEmpty(input)) 
+			return input;
 
 		var lineSeparator = ((char)0x2028).ToString();
 		var paragraphSeparator = ((char)0x2029).ToString();
@@ -91,10 +94,12 @@ public static class StringExtensions
 	/// <returns></returns>
 	public static string FirstToUpper(this string input)
 	{
-		if (input.IsNullOrWhiteSpace()) return string.Empty;
+		if (input.IsNullOrWhiteSpace())
+			return string.Empty;
 
 		Span<char> destination = stackalloc char[1];
 		input.AsSpan(0, 1).ToUpperInvariant(destination);
+		
 		return $"{destination}{input.AsSpan(1)}";
 	}
 	
@@ -105,10 +110,12 @@ public static class StringExtensions
 	/// <returns></returns>
 	public static string FirstToLower(this string input)
 	{
-		if (input.IsNullOrWhiteSpace()) return string.Empty;
+		if (input.IsNullOrWhiteSpace())
+			return string.Empty;
 
 		Span<char> destination = stackalloc char[1];
 		input.AsSpan(0, 1).ToLowerInvariant(destination);
+		
 		return $"{destination}{input.AsSpan(1)}";
 	}
 
@@ -127,7 +134,7 @@ public static class StringExtensions
 		if (input.Contains(' '))
 			croppedMessage = croppedMessage.Substring(0, croppedMessage.LastIndexOf(' '));
 
-		string messageEnd = "...";
+		var messageEnd = "...";
 
 		return $"{croppedMessage}{messageEnd}";
 	}
