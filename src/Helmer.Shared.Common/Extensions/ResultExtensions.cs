@@ -61,6 +61,8 @@ public static class ResultExtensions
 				return "The request cannot be processed by the server. A generic error has occurred.";
 			case Result.NotImplemented:
 				return "The request cannot be processed by the server. This functionality is not implemented.";
+			case Result.BadGateway:
+				return "The request cannot be processed by the server due to a bad gateway.";
 			case Result.GatewayTimeout:
 				return "The request cannot be processed by the server. Gateway timed out.";
 			default:
