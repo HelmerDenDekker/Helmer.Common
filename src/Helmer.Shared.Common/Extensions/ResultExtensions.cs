@@ -62,9 +62,9 @@ public static class ResultExtensions
 			case Result.NotImplemented:
 				return "The request cannot be processed by the server. This functionality is not implemented.";
 			case Result.BadGateway:
-				return "The request cannot be processed by the server due to a bad gateway.";
+				return "The request cannot be processed by the server, due to a bad gateway.";
 			case Result.GatewayTimeout:
-				return "The request cannot be processed by the server. Gateway timed out.";
+				return "The request cannot be processed by the server, due to a gateway timeout.";
 			default:
 				throw new NotImplementedException();
 		}
