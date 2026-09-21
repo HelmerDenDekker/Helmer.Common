@@ -108,6 +108,8 @@ public static class ResultExtensions
 				return HttpStatusCode.InternalServerError;
 			case Result.NotImplemented:
 				return HttpStatusCode.NotImplemented;
+			case Result.BadGateway:
+				return HttpStatusCode.BadGateway;
 			case Result.GatewayTimeout:
 				return HttpStatusCode.GatewayTimeout;
 			default:
