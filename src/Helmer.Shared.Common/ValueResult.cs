@@ -48,6 +48,10 @@ public class ValueResult<TValue>
 	public static ValueResult<TValue> InternalServerError => new(Result.InternalServerError);
 
 	public static ValueResult<TValue> NotImplemented => new(Result.NotImplemented);
+	
+	public static ValueResult<TValue> BadGateway => new(Result.BadGateway);
+
+	public static ValueResult<TValue> GatewayTimeout => new(Result.GatewayTimeout);
 
 	public static ValueResult<TValue> Ok(TValue value) => new(Result.Ok, value);
 }

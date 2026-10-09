@@ -56,6 +56,8 @@ public class ResultExtensionsTests
 	[InlineData(Result.UnavailableForLegalReasons)]
 	[InlineData(Result.InternalServerError)]
 	[InlineData(Result.NotImplemented)]
+	[InlineData(Result.BadGateway)]
+	[InlineData(Result.GatewayTimeout)]
 	public void IsSuccess_WhenResultIsNotOkOrCreatedOrNoContent_ReturnsFalse(Result result)
 	{
 		// Arrange
@@ -247,5 +249,31 @@ public class ResultExtensionsTests
 
 		// Assert
 		Assert.Equal(HttpStatusCode.NotImplemented, statusCode);
+	}
+	
+	[Fact]
+	public void StatusCode_WhenResultIsBadGateway_ReturnsHttpStatusCodeBadGateway()
+	{
+		// Arrange
+		var result = Result.BadGateway;
+
+		// Act
+		var statusCode = result.StatusCode();
+
+		// Assert
+		Assert.Equal(HttpStatusCode.BadGateway, statusCode);
+	}
+	
+	[Fact]
+	public void StatusCode_WhenResultIsGatewayTimeout_ReturnsHttpStatusCodeGatewayTimeout()
+	{
+		// Arrange
+		var result = Result.GatewayTimeout;
+
+		// Act
+		var statusCode = result.StatusCode();
+
+		// Assert
+		Assert.Equal(HttpStatusCode.GatewayTimeout, statusCode);
 	}
 }
